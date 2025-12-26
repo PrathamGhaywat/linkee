@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    return NextResponse.json({ shortUrl: `${request.nextUrl.origin}/s/${shortCode}` });
+    return NextResponse.json({ shortUrl: `${process.env.NEXT_PUBLIC_URL}/s/${shortCode}` });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Failed to shorten URL' }, { status: 500 });
